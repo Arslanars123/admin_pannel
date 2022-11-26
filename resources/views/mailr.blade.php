@@ -1,0 +1,1 @@
+<p>Reservation Code : {{$code}}</p>

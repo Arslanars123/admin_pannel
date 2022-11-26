@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateReservesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('reserves', function (Blueprint $table) {
+            $table->id();
+            $table->string('user_id')->nullable();
+            $table->date('reserve_date')->nullable();
+            $table->date('event_date')->nullable();
+            $table->integer('number_of_people')->nullable();
+            $table->integer('number_of_children')->nullable();
+            $table->time('hours_from')->nullable();
+            $table->time('hours_to')->nullable();
+            $table->longText('detail')->nullable();
+            $table->string('service_id')->nullable();
+
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('reserves');
+    }
+}
